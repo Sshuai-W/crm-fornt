@@ -11,7 +11,7 @@
 
         <!--   菜单     -->
         <el-scrollbar>
-          <el-menu default-active="1">
+          <el-menu default-active="1" router>
             <el-menu-item index="1">
               <i class="el-icon-menu"></i>
               <span slot="title">系统首页</span>
@@ -22,8 +22,8 @@
                 <span>商品</span>
               </template>
               <el-menu-item-group>
-                <el-menu-item index="2-1">品牌管理</el-menu-item>
-                <el-menu-item index="2-2">分类管理</el-menu-item>
+                <el-menu-item index="/brand">品牌管理</el-menu-item>
+                <el-menu-item index="/category">分类管理</el-menu-item>
                 <el-menu-item index="2-2">商品管理</el-menu-item>
               </el-menu-item-group>
             </el-submenu>
@@ -33,8 +33,8 @@
                 <span>员工</span>
               </template>
               <el-menu-item-group>
-                <el-menu-item index="3-1">员工管理</el-menu-item>
-                <el-menu-item index="3-2">部门管理</el-menu-item>
+                <el-menu-item index="/admin">员工管理</el-menu-item>
+                <el-menu-item index="/dept">部门管理</el-menu-item>
               </el-menu-item-group>
             </el-submenu>
             <el-submenu index="4">
@@ -43,8 +43,8 @@
                 <span>系统</span>
               </template>
               <el-menu-item-group>
-                <el-menu-item index="4-1">角色管理</el-menu-item>
-                <el-menu-item index="4-2">权限管理</el-menu-item>
+                <el-menu-item index="/role">角色管理</el-menu-item>
+                <el-menu-item index="/menu">权限管理</el-menu-item>
               </el-menu-item-group>
               <el-submenu index="5">
                 <template slot="title">
@@ -129,9 +129,10 @@ export default {
   background-color: #E9EEF3;
   color: #333;
   padding: 5px 0 0 5px;
+  height: 100%;
+  width: 100%;
   .main-box{
     background-color: azure;
-    width: 100%;
     height: 100%;
     padding: 15px 0 0 15px;
     box-sizing: border-box;

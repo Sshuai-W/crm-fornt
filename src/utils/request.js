@@ -3,7 +3,7 @@ import {Notification} from "element-ui"
 
 const instance = axios.create({
     baseURL: 'http://localhost:9999/',
-    timeout: 2000,
+    timeout: 10000,
 });
 
 // Add a request interceptor

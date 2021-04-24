@@ -1,7 +1,6 @@
-import {searchPage, deleteById, addEntity, updateEntity, deleteAllPick} from '../../api/brand'
-import base64Utils from "../../utils/base64Utils";
+import {searchPage} from "../../api/role";
 
-let brand = {
+let role = {
     name: "index",
     data() {
         return {
@@ -44,7 +43,6 @@ let brand = {
             searchStr: '',
             total: 0,
             id: '',
-            imageUrl: '',
             ids: []
         };
     },
@@ -77,22 +75,16 @@ let brand = {
             this.searchStr = ''
         },
         async deleteById() {
-            await deleteById(this.id)
+            /*await deleteById(this.id)
             if ((this.total-1) == (this.searchParams.currentPage-1)*this.searchParams.pageSize && this.searchParams.currentPage != 1){
                 this.searchParams.currentPage -= 1;
             }
-            this.searchPage()
-        },
-        async getImageUrl(e) {
-            let response = await base64Utils.getBase64Str(e.file);
-            this.imageUrl = response;
-            this.formData.brandLogo = response;
+            this.searchPage()*/
         },
         async addOrEdit() {
             if (this.formData.id) {
-                await updateEntity(this.formData)
+                console.log(this.formData.id)
             } else {
-                await addEntity(this.formData)
                 this.searchPage();
             }
         },
@@ -112,11 +104,7 @@ let brand = {
 
         },
         async deleteAllPick() {
-            await deleteAllPick(this.ids)
-            if ((this.total-this.ids.length) == (this.searchParams.currentPage-1)*this.searchParams.pageSize && this.searchParams.currentPage != 1){
-                this.searchParams.currentPage -= 1;
-            }
-            this.searchPage();
+
         }
 
     },
@@ -125,4 +113,4 @@ let brand = {
     }
 }
 
-export default brand;
+export default role;
